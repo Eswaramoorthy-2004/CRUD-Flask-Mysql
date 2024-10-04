@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>
+            Booking System
+        </title>
+    </head>
+    <body>
+        <h1>PSNA COLLEGE OF ENGINEERING AND TECHNOLOGY</h1>
+        <h2>HALL BOOKING SYSYTEM</h2>
+        <p><a href="{{url_for('insert')}}">ADD USERS</a></p>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>CITY</th>
+            </tr>
+            {% for data in datas %}
+                <tr>
+                    <td>{{data.id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.age}}</td>
+                    <td>{{data.city}}</td>
+                    <td><a href="{{url_for('update', id=data.id )}}">Edit</a></td>
+                    <td><a onclick="return confirm('Are sure to delete?');" href="{{url_for('delete', id=data.id )}}">Delete</a></td>
+
+
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
